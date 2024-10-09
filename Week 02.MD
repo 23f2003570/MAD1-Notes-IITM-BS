@@ -1,4 +1,4 @@
-# Week 1
+# Week 2
 
 *Prof. Nitin Chandrachoodan*  
 *Department of EE, IIT Madras*  
