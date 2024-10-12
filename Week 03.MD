@@ -82,7 +82,6 @@ Smalltalk-80 is a programming language and environment that introduced several i
     - This allows for responsive applications and better resource utilization.
 
 Smalltalk-80 significantly influenced the development of modern programming languages and environments, especially in terms of object-oriented design and interactive programming. Its design principles continue to resonate in contemporary software development practices.
-
 ## [L3.2 Views (12:30)](https://youtu.be/JRR8rtk4YRc)
 ## [L3.3 User Interface Design (11:52)](https://youtu.be/MpbCQUM5dss)
 ### Best Practices in User Interface Design
@@ -304,3 +303,439 @@ Developing user interfaces (UIs) in a systematic manner helps ensure that the en
 1. Keyboards are examples of user interaction, whereas a screen is a user interface.
 2. Touchscreens are examples of user interaction, whereas haptic is a user interface.
    1. Note You got this wrong
+## L3.4 Usability Heuristics
+### 10 usability heuristics
+
+**Jakob Nielsen's Usability Heuristics** with **real-world examples** to illustrate each principle:
+
+#### 1. **Visibility of System Status**
+   The system should always keep users informed about what is happening through appropriate feedback within a reasonable time.
+   - **Example:** When you upload a file on **Google Drive**, a progress bar shows how much of the upload is complete, indicating the status of the task. This feedback reassures the user that the upload is happening in real-time.
+
+#### 2. **Match Between System and the Real World**
+   The system should speak the users' language, with words, phrases, and concepts familiar to the user, following real-world conventions.
+   - **Example:** On **Airbnb**, the booking interface uses terms like "Check-in" and "Check-out" which mimic hotel processes in the real world, making the system intuitive for users.
+
+#### 3. **User Control and Freedom**
+   Users should have the ability to undo mistakes and easily backtrack from unwanted states.
+   - **Example:** In **Microsoft Word**, there’s an “Undo” button that allows users to reverse changes. This feature helps users recover from mistakes such as accidental deletions.
+
+#### 4. **Consistency and Standards**
+   Users should not have to wonder whether different words, situations, or actions mean the same thing. The interface should follow platform and industry standards.
+   - **Example:** **Facebook** maintains a consistent layout across its platform. For instance, the "Like" button appears in the same place under posts whether on mobile or desktop, reinforcing its recognizable function.
+
+#### 5. **Error Prevention**
+   The design should help users avoid errors by guiding them toward correct actions and preventing problems before they occur.
+   - **Example:** **Gmail** warns users when they mention an “attachment” in the email body but forget to actually attach a file. This prevents an error from happening.
+
+#### 6. **Recognition Rather Than Recall**
+   Minimize the user's memory load by making objects, actions, and options visible. The user should not need to remember information from one part of the dialogue to another.
+   - **Example:** On **Amazon**, users don’t have to remember previously viewed products. The platform provides a “Recently Viewed” section, allowing easy recognition rather than recall.
+
+#### 7. **Flexibility and Efficiency of Use**
+   Accelerators, unseen by novice users, should allow expert users to speed up interactions. The system should cater to both inexperienced and advanced users.
+   - **Example:** **Adobe Photoshop** offers keyboard shortcuts for advanced users, like "Ctrl + Z" for undoing actions, while beginners can rely on the menu to perform the same tasks more slowly.
+
+#### 8. **Aesthetic and Minimalist Design**
+   Dialogues should not contain information that is irrelevant or rarely needed. Every extra unit of information competes with relevant units and diminishes their relative visibility.
+   - **Example:** **Google Search** has a minimalist design, with a clean interface that focuses users on the search bar and relevant search results, avoiding clutter or distractions.
+
+#### 9. **Help Users Recognize, Diagnose, and Recover from Errors**
+   Error messages should be expressed in plain language (no codes), precisely indicating the problem, and suggesting a solution.
+   - **Example:** **Instagram** gives a clear error message when the wrong password is entered, saying, “Incorrect password. Try again,” with a “Forgot Password?” link, making it easy to recover.
+
+#### 10. **Help and Documentation**
+   Even though it is better if the system can be used without documentation, help and documentation should be easy to search, focused on the user’s task, list concrete steps, and not be too large.
+   - **Example:** **WordPress** includes a help section in its dashboard, providing users with quick access to guides and tutorials when building websites. The documentation is detailed and easy to search.
+
+These real-world examples help demonstrate how Jakob Nielsen’s usability heuristics are applied across different platforms and systems to improve user experience.
+## [L3.5 Tools Part 1](https://youtu.be/2r8AcoqneFw)
+
+### Tools used in User Interface design
+
+#### 1. **Figma**
+   - **Purpose:** Figma is a web-based UI/UX design tool used for creating prototypes, wireframes, and interactive designs. It supports real-time collaboration, making it ideal for teams.
+   - **Example:** Designers at **Uber** use Figma to create wireframes and design the interface for their mobile apps. Its collaborative features allow teams to work simultaneously on a single design, ensuring smooth coordination among UI/UX designers and developers.
+
+#### 2. **Sketch**
+   - **Purpose:** Sketch is a vector-based design tool for UI and UX design. It’s primarily used for creating high-fidelity designs and prototypes for websites and mobile apps.
+   - **Example:** **Netflix** uses Sketch to design responsive interfaces for their streaming platform. Designers can quickly create artboards for various screen sizes, ensuring a seamless experience on both mobile and desktop devices.
+
+#### 3. **Adobe XD**
+   - **Purpose:** Adobe XD is a versatile UI/UX design tool used for wireframing, prototyping, and designing interfaces. It offers integration with other Adobe Creative Cloud tools.
+   - **Example:** **Airbnb** designers use Adobe XD to prototype new features for their website and mobile app. With XD’s interactive features, they can simulate the user flow and test the designs before development.
+
+#### 4. **InVision**
+   - **Purpose:** InVision is a tool used for creating interactive prototypes and collaborating with stakeholders. It’s also popular for gathering feedback and managing design workflows.
+   - **Example:** **Spotify** uses InVision to share prototypes with team members and gather feedback on early-stage designs for both their desktop and mobile apps. InVision’s commenting feature helps streamline the review process.
+
+#### 5. **Axure RP**
+   - **Purpose:** Axure RP is a powerful tool for creating wireframes, flowcharts, and interactive prototypes. It’s especially useful for designing complex interfaces with dynamic interactions.
+   - **Example:** Axure is often used by enterprise software companies like **Salesforce** to design and prototype complex user flows in their CRM systems. Axure’s ability to create detailed prototypes helps test functionality before coding begins.
+
+#### 6. **Balsamiq**
+   - **Purpose:** Balsamiq is a wireframing tool used to create low-fidelity mockups. It’s known for its simplicity and ease of use, making it ideal for quick sketch-style designs.
+   - **Example:** Startups often use Balsamiq in the early stages of product development to sketch out ideas. For instance, a team working on a new **e-commerce app** might use Balsamiq to create rough wireframes of the shopping cart, navigation, and checkout process.
+
+#### 7. **Marvel**
+   - **Purpose:** Marvel is a web-based tool for creating prototypes, wireframes, and user testing. It’s known for its simplicity and is often used for user testing early in the design process.
+   - **Example:** **BuzzFeed** uses Marvel to test different layouts for their articles. They can quickly prototype new designs and gather feedback from user testing sessions to ensure the best layout is chosen before development.
+
+#### 8. **Framer**
+   - **Purpose:** Framer is an interactive design tool that allows designers to build high-fidelity prototypes with advanced animations and micro-interactions.
+   - **Example:** **Instagram**’s design team uses Framer to prototype and test animations for in-app interactions such as swipe gestures, like animations, and transitioning between stories. Framer’s ability to prototype dynamic interactions helps in refining the app’s responsiveness.
+
+#### 9. **Principle**
+   - **Purpose:** Principle is a design tool focused on creating animated and interactive UI prototypes, often used to show how an interface behaves when interacted with.
+   - **Example:** Designers at **Apple** use Principle to create fluid animations and interactions for their mobile app interfaces, showing exactly how a button or transition should behave when tapped, swiped, or dragged.
+
+#### 10. **Zeplin**
+   - **Purpose:** Zeplin is a collaboration tool that bridges the gap between designers and developers. It allows designers to export designs and generate specifications that developers can use to implement the UI accurately.
+   - **Example:** After creating a design in **Sketch** or **Figma**, designers at **Slack** export their designs to Zeplin, where developers can view design specifications, such as font sizes, colors, and padding, ensuring that the final product matches the design.
+
+#### 11. **Canva**
+   - **Purpose:** Canva is a user-friendly tool for creating basic UI designs, presentations, social media graphics, and more. While not as advanced as Sketch or Figma, it’s useful for quick design needs.
+   - **Example:** Marketing teams at **small businesses** use Canva to design simple landing pages, social media banners, or app icons, especially when they don’t need complex functionality or interactive prototypes.
+
+#### 12. **Overflow**
+   - **Purpose:** Overflow is a tool for creating user flow diagrams and visualizing how users navigate through an app or website.
+   - **Example:** Designers at **Dropbox** use Overflow to map out user journeys through their file storage platform, ensuring that each screen and interaction is logically connected and easy to follow.
+
+#### 13. **Miro**
+   - **Purpose:** Miro is an online collaborative whiteboarding tool that is used for brainstorming, wireframing, and mapping out ideas during the design process.
+   - **Example:** During remote design sprints, teams at **Google** use Miro to sketch out early wireframes and map out the information architecture of new features. It helps in visualizing the entire design process and gathering feedback from various stakeholders.
+
+#### 14. **Adobe Illustrator**
+   - **Purpose:** Adobe Illustrator is a vector-based design tool used for creating icons, logos, and detailed illustrations for UI elements.
+   - **Example:** UI designers at **LinkedIn** might use Adobe Illustrator to create custom icons for the platform’s interface. These icons are then imported into tools like Figma or Sketch for use in the overall design.
+
+#### 15. **FlowMapp**
+   - **Purpose:** FlowMapp is a tool used to design user flows and sitemaps, helping to organize the structure of a website or app.
+   - **Example:** **Etsy** designers use FlowMapp to create sitemaps that organize all the sections of their e-commerce platform, ensuring a seamless flow from homepage to checkout, making it easy for users to navigate the site.
+
+## [L3.6 Tools - Part II](https://youtu.be/SbVDz1P4AMg)
+### PyHTML
+
+**PyHTML** is a Python library that allows you to generate HTML content using Python code. It helps create HTML pages dynamically by writing Python scripts instead of manually writing HTML. This can be especially useful when you need to create web pages programmatically or generate HTML as part of a larger Python application.
+
+#### Key Features of PyHTML:
+1. **Pythonic HTML Generation:** You can use Python functions and logic to create HTML elements and structure.
+2. **Modular HTML Construction:** Break down complex HTML structures into reusable Python functions.
+3. **Dynamic Content Creation:** Combine dynamic data with HTML templates.
+4. **Clean, Minimal Code:** Avoid the verbosity of mixing HTML and Python by keeping everything within Python's syntax.
+
+#### Example of PyHTML in Action:
+Here’s a simple example of using PyHTML to generate a basic HTML page with a heading, paragraph, and a list.
+
+```python
+from pyhtml import html, head, title, body, h1, p, ul, li
+
+# Define the HTML structure using PyHTML elements
+def generate_webpage():
+    return html(
+        head(
+            title("My PyHTML Webpage")
+        ),
+        body(
+            h1("Welcome to My Webpage"),
+            p("This page is generated using PyHTML in Python."),
+            ul(
+                li("First item"),
+                li("Second item"),
+                li("Third item")
+            )
+        )
+    )
+
+# Render the HTML as a string
+webpage_html = str(generate_webpage())
+
+# Output the HTML string (can be saved to a file or served in a web app)
+print(webpage_html)
+```
+
+#### Output HTML:
+```html
+<html>
+  <head>
+    <title>My PyHTML Webpage</title>
+  </head>
+  <body>
+    <h1>Welcome to My Webpage</h1>
+    <p>This page is generated using PyHTML in Python.</p>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+  </body>
+</html>
+```
+
+#### How to Use PyHTML:
+1. **Install PyHTML:**
+   If you don’t have it installed yet, you can install it via pip:
+   ```bash
+   pip install pyhtml
+   ```
+
+2. **Run the Script:**
+   After writing the script, you can run it in your Python environment, and the generated HTML can be printed out, saved to a file, or used within a web application.
+
+#### Use Cases for PyHTML:
+- **Dynamic HTML Page Generation:** For web apps where the content or structure changes dynamically.
+- **Automating Reports:** Create HTML reports with Python-generated data.
+- **Email Templates:** Generate HTML email content programmatically.
+- **Web Scraping/Data Processing Applications:** When you need to output processed data as HTML. 
+
+### Iteration in PyHTML
+```python
+from pyhtml import html, head, title, body, h1, ul, li
+
+# Sample data to iterate over
+items = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+
+# Function to generate HTML using iteration
+def generate_fruit_list():
+    return html(
+        head(
+            title("Fruit List Page")
+        ),
+        body(
+            h1("Fruits I Like"),
+            ul(
+                # Using a list comprehension with li to create list items
+                [li(item) for item in items]
+            )
+        )
+    )
+
+# Render the HTML as a string
+fruit_list_html = str(generate_fruit_list())
+
+# Output the generated HTML
+print(fruit_list_html)
+
+```
+
+### String Template
+
+```python
+from string import Template
+
+# Template string with placeholders
+template = Template("<li>$item</li>")
+
+# List of items to iterate over
+items = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+
+# Iterating over items and substituting values in the template
+html_list_items = ""
+for item in items:
+    html_list_items += template.substitute(item=item)
+
+# Creating the final HTML by embedding the list items
+final_html = Template("""
+<html>
+  <head>
+    <title>$title</title>
+  </head>
+  <body>
+    <h1>$header</h1>
+    <ul>
+      $list_items
+    </ul>
+  </body>
+</html>
+""").substitute(title="Fruit List", header="Fruits I Like", list_items=html_list_items)
+
+# Output the generated HTML
+print(final_html)
+
+```
+
+### Jinja2 Templating
+
+```python
+from jinja2 import Template
+
+# Sample hierarchical data (e.g., categories and subcategories)
+categories = [
+    {
+        "name": "Electronics",
+        "subcategories": [
+            {
+                "name": "Mobile Phones",
+                "subcategories": [
+                    {"name": "Smartphones", "subcategories": []},
+                    {"name": "Feature Phones", "subcategories": []}
+                ]
+            },
+            {"name": "Laptops", "subcategories": []},
+        ]
+    },
+    {
+        "name": "Clothing",
+        "subcategories": [
+            {"name": "Men", "subcategories": []},
+            {"name": "Women", "subcategories": []}
+        ]
+    },
+]
+
+# Jinja2 template with a recursive loop
+template_str = """
+<ul>
+    {% for category in categories recursive %}
+        <li>
+            {{ category.name }}
+            {% if category.subcategories %}
+                <ul>
+                    {{ loop(category.subcategories) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+"""
+
+# Compile the template
+template = Template(template_str)
+
+# Render the template with the data
+rendered_html = template.render(categories=categories)
+
+# Output the generated HTML
+print(rendered_html)
+
+```
+## [L3.7 Accessibility (20:07)](https://youtu.be/NyMuZbQ47ws)
+
+### W3C Accessibility guidelines
+The **W3C Web Content Accessibility Guidelines (WCAG)** are a set of recommendations aimed at making web content more accessible, especially for people with disabilities. The guidelines are categorized into four key principles: **Perceivable, Operable, Understandable, and Robust (POUR)**. Here’s a breakdown of these principles with examples:
+
+#### 1. **Perceivable**: Information must be presentable to users in ways they can perceive.
+   - **Text Alternatives**: Provide text alternatives for non-text content (e.g., images).
+     - **Example**: Use `alt` text for images to describe what the image shows, so screen readers can interpret it.
+   - **Time-based Media**: Provide alternatives for time-based media (e.g., videos).
+     - **Example**: Offer transcripts for audio content and captions for video content.
+   - **Adaptable Content**: Ensure content can be presented in different ways (e.g., simpler layout) without losing information or structure.
+     - **Example**: Use proper HTML tags (e.g., headings and lists) so assistive technologies can reformat the content effectively.
+   - **Distinguishable**: Make it easier for users to see and hear content, including separating foreground from background.
+     - **Example**: Ensure sufficient color contrast between text and background (e.g., dark text on a light background).
+
+#### 2. **Operable**: User interface components and navigation must be operable by all users.
+   - **Keyboard Accessibility**: All functionality should be available from a keyboard.
+     - **Example**: Users should be able to navigate through a website using only the keyboard (e.g., with the `Tab` key).
+   - **Enough Time**: Give users enough time to read and use content.
+     - **Example**: Avoid time limits, or provide ways to extend time on pages that auto-refresh or expire.
+   - **Seizure and Physical Reactions**: Do not design content in a way that is known to cause seizures.
+     - **Example**: Avoid using flashing or rapidly flickering content (no content should flash more than three times per second).
+   - **Navigable**: Provide ways to help users navigate, find content, and determine where they are.
+     - **Example**: Ensure the website has clear headings, consistent navigation menus, and breadcrumb links.
+
+#### 3. **Understandable**: Information and the operation of the user interface must be understandable.
+   - **Readable Text**: Make text readable and understandable.
+     - **Example**: Use plain language and avoid jargon that could be difficult for some users to understand.
+   - **Predictable Web Pages**: Make web pages appear and operate in predictable ways.
+     - **Example**: Ensure that if a user interacts with an element (e.g., clicking a link), they know what will happen. For instance, links should be clearly identified as such, and clicking them should open the expected page.
+   - **Input Assistance**: Help users avoid and correct mistakes.
+     - **Example**: Provide error suggestions if the user fills out a form incorrectly (e.g., highlighting which field was missed and offering hints).
+
+#### 4. **Robust**: Content must be robust enough that it can be reliably interpreted by a wide variety of user agents, including assistive technologies.
+   - **Compatible with Assistive Technologies**: Maximize compatibility with current and future user agents, including assistive technologies.
+     - **Example**: Ensure the use of standard HTML practices so that screen readers and other tools can correctly interpret the website structure and content.
+
+---
+
+#### Examples of WCAG Success Criteria
+
+##### Example 1: Color Contrast (Perceivable)
+   - **Issue**: A website uses light gray text on a white background.
+   - **Solution**: Increase the contrast by using black text on a white background or dark gray text on a light gray background to meet WCAG contrast requirements (minimum ratio of 4.5:1 for normal text).
+
+##### Example 2: Keyboard Navigation (Operable)
+   - **Issue**: A drop-down menu can only be activated by hovering the mouse.
+   - **Solution**: Ensure that the menu can also be opened and navigated via keyboard (e.g., by pressing the `Tab` key and using arrow keys).
+
+##### Example 3: Form Input Error (Understandable)
+   - **Issue**: A user submits a form without entering a required field, and the page just reloads without any feedback.
+   - **Solution**: Provide error messages clearly indicating which fields are required and give suggestions on how to correct the errors.
+
+##### Example 4: Screen Reader Compatibility (Robust)
+   - **Issue**: A website’s navigation bar is coded in a way that is unreadable by screen readers.
+   - **Solution**: Use semantic HTML (e.g., `nav` tags for navigation and proper headings) so assistive technologies can interpret the structure and content correctly.
+
+These guidelines ensure that websites and web applications are more inclusive, enhancing the user experience for everyone, especially individuals with disabilities.
+
+## Extra Lectures
+
+### 1. Execute another python file
+```py
+exec (open('hello.py').read())
+```
+
+### 2. Python Arguments
+
+```py
+import sys
+sys.argv()
+```
+
+### 3. Python Entrypoint
+
+`__name__` is the current scope.
+```py
+def main():
+   print('Hello World')
+if __name__ == '__main__':
+   main()
+```
+
+### String Templating
+
+**Named Arguments**
+
+```py
+TEMPLATE = """
+Hello {name}
+"""
+
+print(TEMPLATE.format(name="Thej"))
+```
+
+**Positional Arguments**
+
+```
+TEMPLATE = """
+Hello {} OR Hello {0}.. Just try this to get a better understanding
+"""
+
+print(TEMPLATE.format("Thej"))
+```
+
+**String Formatting**
+
+```py
+TEMPLATE = """
+This is a Decimal {value:d}, and this is Hex {value: x}
+"""
+```
+
+### 4. Virtual Environments
+
+```sh
+python3 -m venv .venv-name
+source .venv-name/bin/activate
+
+which python ## Local python will show up
+
+pip install ....
+pip freeze > requirements.txt
+```
+
+### 5. Jinja2 Templating
+```py
+from jinja2 import template
+
+```
