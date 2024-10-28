@@ -15,9 +15,9 @@ The **binary representation** of numbers uses only two digits: **0** and **1**. 
 - **Base-2 system**: Each digit in a binary number represents a power of 2. The rightmost digit is the least significant bit (2^0), and each digit to the left has a higher power of 2 (2^1, 2^2, etc.).
 - **Example**:
    - Binary `1011` represents:
-     \[
+     $$
      1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 = 8 + 0 + 2 + 1 = 11 \text{ in decimal}.
-     \]
+     $$
    
 - **Converting from Decimal to Binary**:
    - Repeatedly divide the decimal number by 2, recording the remainder. The binary representation is formed by reading the remainders from bottom to top.
