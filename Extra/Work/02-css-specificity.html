@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="02-css-specificity.css" rel="stylesheet"/>
+    <style>
+        h4 {color: blue !important; width: 90px;}
+        p, span {font-weight: bold;}
+    </style>
+</head>
+<body style="background-color: lightgray;">
+    <h4 style="color: yellow;">Statement 1</h4>
+    <p class="one"> Statement 2 </p>
+    <span class="two" style="color: blue;">Statement 3</span>
+    <span> Statement 4 </span>
+</body>
+</html>
