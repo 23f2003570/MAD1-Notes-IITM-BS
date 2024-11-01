@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Week 5
 
 *Prof. Nitin Chandrachoodan*  
@@ -107,15 +106,6 @@ ASP.NET Core MVC is a full-fledged web framework built by Microsoft. It enforces
 
 - ________ stores the data, ________shows data to the user, and the ________ which takes care of the action.
   - ~~Model, view, controller~~
-
-=======
-# Week 5
-
-*Prof. Nitin Chandrachoodan*  
-*Department of EE, IIT Madras*  
-
-*Notes by Adarsh (23f2003570)*  
-
 
 ## [L5.2: Requests and Responses (14.42)](https://youtu.be/K7IJ3n6lPsE)
 
@@ -651,4 +641,3 @@ In computer networking, **URN**, **URI**, and **URL** are important concepts tha
 - **URL**: A specific type of URI that includes the means to access a resource and its location. All URLs are URIs, but not all URIs are URLs.
 
 - **URN**: A type of URI that names a resource without indicating where it can be found or how to access it. It focuses on the identity of the resource.
->>>>>>> 5659f1fdbbd01b18d16d3f89c9a606010ddfd2bf
