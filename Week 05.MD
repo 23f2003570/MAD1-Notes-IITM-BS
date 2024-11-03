@@ -641,3 +641,540 @@ In computer networking, **URN**, **URI**, and **URL** are important concepts tha
 - **URL**: A specific type of URI that includes the means to access a resource and its location. All URLs are URIs, but not all URIs are URLs.
 
 - **URN**: A type of URI that names a resource without indicating where it can be found or how to access it. It focuses on the identity of the resource.
+
+
+## [L5.5: Routes and Controllers (20:11)](https://youtu.be/co28E0Go_VA)
+
+### Stateless
+
+Statelessness in HTTP means that each request from a client to a server is treated as an independent transaction, without any stored context from previous requests. This design simplifies server management, as the server does not need to retain information about users between requests.
+
+#### Example:
+
+1. **Basic Request:**
+   - A client (like a web browser) sends a request to a server for a webpage. The server processes this request and sends back the webpage. Each time the client requests a different page, it must include all necessary information (like cookies or authentication tokens) because the server doesn’t remember past requests.
+
+2. **Login Example:**
+   - When a user logs in, they send their credentials to the server. The server validates the credentials and may send back a session token. On subsequent requests, the client must include this token to maintain the user’s authenticated state. The server doesn’t remember who the user is; it only verifies the token with each request.
+
+In stateless communication, each request is self-contained, promoting scalability and simplifying server architecture, but requiring that clients manage their session state through tokens or cookies.
+
+### Components of Flask App
+
+A Flask app consists of several key components that work together to create a web application. Here’s a brief overview of these components:
+
+#### 1. **Flask Object**
+   - The core of a Flask app is the Flask object, typically instantiated like this:
+     ```python
+     from flask import Flask
+     app = Flask(__name__)
+     ```
+
+#### 2. **Routes**
+   - Routes are used to define the URL patterns that your app responds to. Each route is linked to a function (view function) that handles the request.
+     ```python
+     @app.route('/')
+     def home():
+         return 'Hello, Flask!'
+     ```
+
+     The "/" is a *decorator*
+
+#### 3. **View Functions**
+   - View functions are Python functions that return responses to HTTP requests. They can return strings, HTML, or other types of responses.
+     ```python
+     @app.route('/about')
+     def about():
+         return '<h1>About Page</h1>'
+     ```
+
+#### 4. **Templates**
+   - Flask uses the Jinja2 templating engine to render HTML. Templates allow you to separate the presentation layer from your application logic.
+     ```html
+     <!-- templates/index.html -->
+     <h1>{{ title }}</h1>
+     ```
+
+#### 5. **Static Files**
+   - Static files (like CSS, JavaScript, and images) are stored in a `static` directory. You can serve these files directly to clients.
+     ```html
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     ```
+
+#### 6. **Request and Response Objects**
+   - Flask provides `request` and `response` objects to handle incoming data and send responses.
+     ```python
+     from flask import request
+     
+     @app.route('/submit', methods=['POST'])
+     def submit():
+         data = request.form['input_name']
+         return f'You submitted: {data}'
+     ```
+
+#### 7. **Configuration**
+   - Flask apps can be configured through environment variables or a configuration file. This is where you set parameters like database URLs, debug mode, and secret keys.
+     ```python
+     app.config['DEBUG'] = True
+     ```
+
+#### 8. **Extensions**
+   - Flask supports many extensions that add functionality, like database integration (Flask-SQLAlchemy), form handling (Flask-WTF), and authentication (Flask-Login).
+
+#### Example Structure:
+Here's a simple structure of a Flask app:
+
+```
+/my_flask_app
+    /static
+        style.css
+    /templates
+        index.html
+    app.py
+```
+
+### Routing Decorators in Flask
+
+
+#### 1. **`@app.route()`**
+This is the most commonly used decorator. It maps a URL to a function.
+
+**Example:**
+```python
+@app.route('/')
+def home():
+    return 'Welcome to the Home Page!'
+```
+
+#### 2. **HTTP Method-Specific Decorators**
+Flask provides specific decorators for handling different HTTP methods. Here are the most commonly used:
+
+##### a. **`@app.get()`**
+Used for handling GET requests.
+
+**Example:**
+```python
+@app.get('/items')
+def get_items():
+    return ['item1', 'item2', 'item3']
+```
+
+##### b. **`@app.post()`**
+Used for handling POST requests.
+
+**Example:**
+```python
+@app.post('/submit')
+def submit_data():
+    return 'Data submitted successfully!'
+```
+
+##### c. **`@app.put()`**
+Used for handling PUT requests.
+
+**Example:**
+```python
+@app.put('/update/<int:item_id>')
+def update_item(item_id):
+    return f'Item {item_id} updated successfully!'
+```
+
+##### d. **`@app.delete()`**
+Used for handling DELETE requests.
+
+**Example:**
+```python
+@app.delete('/delete/<int:item_id>')
+def delete_item(item_id):
+    return f'Item {item_id} deleted successfully!'
+```
+
+#### 3. **Dynamic Routes**
+Flask allows you to define dynamic parts in your routes using angle brackets.
+
+**Example:**
+```python
+@app.route('/user/<username>')
+def show_user(username):
+    return f'User: {username}'
+```
+
+#### 4. **Route with Multiple Methods**
+You can specify multiple HTTP methods that a single route can handle.
+
+**Example:**
+```python
+@app.route('/item', methods=['GET', 'POST'])
+def handle_item():
+    if request.method == 'POST':
+        return 'Item created!'
+    else:
+        return 'Retrieve item!'
+```
+
+#### 5. **Route with Default Values**
+You can provide default values for dynamic segments.
+
+**Example:**
+```python
+@app.route('/greet/<name>', defaults={'name': 'Guest'})
+def greet(name):
+    return f'Hello, {name}!'
+```
+
+#### 6. **Route with Regular Expressions**
+You can also use regular expressions to define more complex routes.
+
+**Example:**
+```python
+import re
+
+@app.route('/regex/<regex("[a-z]{3}"):shortname>')
+def regex_route(shortname):
+    return f'Valid shortname: {shortname}'
+```
+
+
+### MVC and Flask - The debate
+
+Flask is often **not** strictly classified as an MVC (Model-View-Controller) framework, primarily because it doesn't enforce the MVC pattern as strictly as some other frameworks do.
+
+#### 1. **Flexibility**
+Flask is designed to be lightweight and flexible. While you can implement MVC in a Flask app, the framework doesn't impose a specific structure. Developers have the freedom to organize their code as they see fit, which can lead to different architectural styles.
+
+#### 2. **Absence of Formal Components**
+In traditional MVC frameworks:
+- **Model**: Manages the data and business logic.
+- **View**: Handles the presentation layer.
+- **Controller**: Manages user input and interactions.
+
+Flask combines some of these roles:
+- The **view** functions in Flask often handle both the controller and the view logic, processing requests and returning responses directly. 
+- Flask uses Jinja2 templates for rendering views, but the separation between controller and view is less rigid compared to MVC frameworks like Ruby on Rails or Django.
+
+#### 3. **Customizable Architecture**
+Flask encourages a modular architecture, allowing developers to define their structure. You can have different folders for templates, static files, and models, but it's not enforced, leading to various interpretations of how to implement MVC.
+
+#### 4. **Emphasis on Simplicity**
+Flask's simplicity and minimalism mean that it focuses more on the essentials of web development rather than adhering to a strict design pattern. This makes it easy to get started, but it also means that developers might not implement MVC in a conventional way.
+
+#### Example:
+In a Flask application, you might see code that blends views and controllers:
+
+```python
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/item/<int:item_id>', methods=['GET', 'POST'])
+def item(item_id):
+    if request.method == 'POST':
+        # Handle form submission (acting as controller)
+        return 'Item updated'
+    else:
+        # Render template (acting as view)
+        return render_template('item.html', item_id=item_id)
+```
+
+In this example, the `item` function acts as both the controller (handling the request) and the view (returning a rendered template).
+
+While you can implement MVC principles in Flask, the framework's design philosophy promotes flexibility and simplicity over strict adherence to any particular architectural pattern. This allows developers to choose their preferred approach, making Flask suitable for a wide range of applications.
+
+
+### WSGI
+
+WSGI, or Web Server Gateway Interface, is a specification for a universal interface between web servers and Python web applications or frameworks. It acts as a bridge that allows a web server to communicate with web applications, facilitating the development and deployment of web applications in Python.
+
+#### Key Concepts of WSGI
+
+1. **Specification**
+   - WSGI is defined in PEP 333 and later versions. It specifies how a web server should communicate with a Python web application and vice versa.
+
+2. **Two Parts**
+   - **Server/Gateway**: This part is responsible for receiving HTTP requests and passing them to the application.
+   - **Application**: This is the Python callable (usually a function or a class) that processes the request and returns a response.
+
+#### WSGI Application Structure
+
+A WSGI application must be a callable (like a function or a class with a `__call__` method) that accepts two arguments:
+
+- **environ**: A dictionary containing all the request information (HTTP headers, request method, etc.).
+- **start_response**: A callback function that starts the HTTP response.
+
+**Example of a Simple WSGI Application:**
+```python
+def simple_app(environ, start_response):
+    status = '200 OK'  # HTTP status
+    headers = [('Content-Type', 'text/plain')]
+    start_response(status, headers)
+
+    return [b'Hello, WSGI!']  # Response body must be bytes
+```
+
+#### How WSGI Works
+
+1. **Request Handling**: When a request comes in, the WSGI server calls the WSGI application with the `environ` dictionary and the `start_response` function.
+2. **Response Generation**: The application processes the request and generates a response, which is sent back through the `start_response` function and returned as an iterable (usually a list of byte strings).
+
+#### WSGI Servers
+
+Several servers implement the WSGI specification, allowing you to run WSGI applications. Some popular ones include:
+
+- **Gunicorn**: A Python WSGI HTTP server for UNIX.
+- **uWSGI**: A versatile server that can serve WSGI applications and also supports various other protocols.
+- **Flask's built-in server**: While not suitable for production, it serves WSGI applications for development purposes.
+
+#### WSGI Middleware
+
+WSGI middleware is a layer that can be added between the server and the application. Middleware can process requests and responses, allowing for functionality like session management, authentication, logging, and more.
+
+**Example of Middleware:**
+```python
+def simple_middleware(app):
+    def wrapped_app(environ, start_response):
+        # Do something before the request
+        print("Before request")
+        
+        # Call the actual WSGI app
+        response = app(environ, start_response)
+
+        # Do something after the request
+        print("After request")
+        
+        return response
+    
+    return wrapped_app
+```
+
+WSGI provides a standardized interface for web servers and Python applications, promoting compatibility and flexibility in web development. It enables developers to build portable web applications that can run on any WSGI-compliant server, facilitating the deployment and scaling of Python web applications.
+
+
+| Library/Toolkit | Description                                         |
+|------------------|-----------------------------------------------------|
+| **Gunicorn**     | A lightweight WSGI server for UNIX, simple and efficient. |
+| **uWSGI**        | A versatile application server that supports multiple protocols, highly configurable. |
+| **Waitress**     | A pure Python WSGI server known for simplicity and ease of use. |
+| **Daphne**       | Supports HTTP, HTTP2, and WebSocket protocols, primarily for ASGI but can serve WSGI apps. |
+| **CherryPy**     | An object-oriented web framework with its own WSGI server. |
+| **Mod_wsgi**     | An Apache module that allows hosting Python WSGI applications in Apache. |
+| **Falcon**       | A high-performance framework for building REST APIs, with WSGI compatibility. |
+| **Pyramid**      | A flexible and modular web framework that can run on any WSGI server. |
+| **Zope**         | An application server and web framework with WSGI support. |
+| **Tornado**      | A web framework and asynchronous networking library, can act as a WSGI server. |
+| **Bjoern**       | A lightweight and high-performance WSGI server. |
+| **Twisted**      | An event-driven networking engine that can serve WSGI applications. |
+| **Werkzeug**     | A comprehensive WSGI toolkit that provides utilities for building WSGI applications, including a built-in development server. |
+
+#### Werkzeug Overview
+- **Description**: Werkzeug is not only a WSGI server but also a toolkit that provides utilities for creating and handling WSGI applications. It includes a development server, routing, request and response objects, and various utilities for building web applications.
+- **Usage**: It's often used as the foundation for frameworks like Flask, making it an essential part of the WSGI landscape.
+
+### SQL Alchemy relations
+
+SQLAlchemy supports several types of relationships that define how tables in a database interact with one another. Understanding these relationships is crucial for designing a well-structured database schema. Here are the main types of relationships supported by SQLAlchemy, along with examples:
+
+#### 1. **One-to-Many Relationship**
+In a one-to-many relationship, one record in a parent table can be associated with multiple records in a child table.
+
+**Example:**
+Consider a `User` table and a `Post` table, where one user can have multiple posts.
+
+```python
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    
+    posts = relationship("Post", back_populates="user")
+
+class Post(Base):
+    __tablename__ = 'posts'
+    
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    
+    user = relationship("User", back_populates="posts")
+```
+
+#### 2. **Many-to-One Relationship**
+This is the inverse of a one-to-many relationship. Many records in a child table can relate to one record in a parent table.
+
+**Example:**
+Using the same `Post` and `User` example, each post is related to one user.
+
+```python
+# See above example; the relationship in the Post class shows many posts can relate to one user.
+```
+
+#### 3. **Many-to-Many Relationship**
+In a many-to-many relationship, multiple records in one table can relate to multiple records in another table. This is typically managed through an association table.
+
+**Example:**
+Consider a `Student` table and a `Course` table, where students can enroll in multiple courses, and courses can have multiple students.
+
+```python
+from sqlalchemy import Table
+
+enrollment = Table('enrollment', Base.metadata,
+    Column('student_id', Integer, ForeignKey('students.id')),
+    Column('course_id', Integer, ForeignKey('courses.id'))
+)
+
+class Student(Base):
+    __tablename__ = 'students'
+    
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    courses = relationship("Course", secondary=enrollment, back_populates="students")
+
+class Course(Base):
+    __tablename__ = 'courses'
+    
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    students = relationship("Student", secondary=enrollment, back_populates="courses")
+```
+
+#### 4. **One-to-One Relationship**
+In a one-to-one relationship, one record in a table is associated with one record in another table. This can be implemented by using a unique foreign key constraint.
+
+**Example:**
+Consider a `User` table and a `Profile` table where each user has exactly one profile.
+
+```python
+class Profile(Base):
+    __tablename__ = 'profiles'
+    
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'), unique=True)
+    bio = Column(String)
+    
+    user = relationship("User", back_populates="profile")
+
+User.profile = relationship("Profile", uselist=False, back_populates="user")
+```
+
+#### Summary of Relationships
+| Relationship Type | Description                                      |
+|-------------------|--------------------------------------------------|
+| One-to-Many       | One record in the parent can have multiple child records. |
+| Many-to-One       | Many records in the child relate to one parent record. |
+| Many-to-Many      | Many records in one table relate to many records in another table, using an association table. |
+| One-to-One        | One record in one table relates to exactly one record in another table. |
+
+
+### Connecting to DataBase
+
+SQLAlchemy connects to a database engine using a connection string that specifies the database type, user credentials, host, and database name. This connection string is used to create an engine, which serves as the starting point for any SQLAlchemy application.
+
+#### Steps to Connect to a Database Engine with SQLAlchemy
+
+1. **Install SQLAlchemy**
+   First, ensure that you have SQLAlchemy installed. You can also install the database driver for your specific database (e.g., psycopg2 for PostgreSQL, pymysql for MySQL).
+
+   ```bash
+   pip install SQLAlchemy
+   pip install psycopg2  # For PostgreSQL
+   pip install pymysql    # For MySQL
+   ```
+
+2. **Import Necessary Components**
+   You need to import the `create_engine` function from SQLAlchemy.
+
+   ```python
+   from sqlalchemy import create_engine
+   ```
+
+3. **Create the Database Engine**
+   Use the `create_engine()` function with the appropriate connection string to establish a connection to the database.
+
+   **Example Connection Strings:**
+   - **PostgreSQL**: 
+     ```python
+     engine = create_engine('postgresql://user:password@localhost/mydatabase')
+     ```
+   - **MySQL**:
+     ```python
+     engine = create_engine('mysql+pymysql://user:password@localhost/mydatabase')
+     ```
+   - **SQLite**:
+     ```python
+     engine = create_engine('sqlite:///mydatabase.db')
+     ```
+
+4. **Using the Engine to Connect**
+   After creating the engine, you can use it to connect to the database and execute queries. Here’s a simple example demonstrating this.
+
+#### Full Example: Connecting to a SQLite Database
+
+```python
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# Define the base class for declarative models
+Base = declarative_base()
+
+# Define a sample model
+class User(Base):
+    __tablename__ = 'users'
+    
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    
+    def __repr__(self):
+        return f"<User(name='{self.name}')>"
+
+# Create a SQLite database engine
+engine = create_engine('sqlite:///mydatabase.db', echo=True)
+
+# Create all tables in the database (if they don't exist)
+Base.metadata.create_all(engine)
+
+# Create a new session
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Add a new user to the database
+new_user = User(name='John Doe')
+session.add(new_user)
+session.commit()
+
+# Query the database
+for user in session.query(User).all():
+    print(user)
+
+# Close the session
+session.close()
+```
+
+#### Explanation of the Example
+
+1. **Creating the Engine**: 
+   The `create_engine` function establishes a connection to a SQLite database called `mydatabase.db`. The `echo=True` flag enables logging of all SQL statements.
+
+2. **Defining a Model**: 
+   The `User` class defines a model that represents the `users` table.
+
+3. **Creating the Tables**: 
+   `Base.metadata.create_all(engine)` creates the tables defined in the model if they don't already exist in the database.
+
+4. **Creating a Session**: 
+   A session is created using `sessionmaker`, which provides a workspace for database operations.
+
+5. **Adding and Committing Data**: 
+   A new user is added to the session and committed to the database.
+
+6. **Querying Data**: 
+   The application queries the `User` table and prints each user.
+
+7. **Closing the Session**: 
+   It’s good practice to close the session after operations are completed.
