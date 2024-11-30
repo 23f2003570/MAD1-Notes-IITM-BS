@@ -1,4 +1,4 @@
-from flask import Flask, abort, request
+from flask import Flask, abort, request, url_for
 import html
 
 app = Flask(__name__)
@@ -20,6 +20,25 @@ def validate(number):
         abort(400, f'bad request number={number}')
     return f'<h1>Valid number {number}</h1>'
 
+@app.route('/test')
+def test():
+    return url_for('home2')
+
+@app.route('/mypathroute/<path:url_path>')
+def mypathroute(url_path):   
+    return 'The path is: ' +url_path
+
+@app.route('/aboutpage')
+def Homea():
+    return 'This is my home page'
+
+@app.route('/projectpage/')
+def projects():
+    return 'The project page'
+
+@app.route('/aboutpage/projectpage//')
+def result():
+    return 'This is about the project page'
 
 @app.route('/process')
 def process():
