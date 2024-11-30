@@ -40,6 +40,15 @@ def projects():
 def result():
     return 'This is about the project page'
 
+@app.route('/aboutpage/projectpage///')
+def result3():
+    return 'This is about the project page'
+
+# Test Cases for you to perform
+#   curl -v http://127.0.0.1:5000/projectpage/ #The project page
+#   curl -v http://127.0.0.1:5000/aboutpage/projectpage # 308 http://127.0.0.1:5000/aboutpage/projectpage/
+#     
+    
 @app.route('/process')
 def process():
     user_name = request.args.get('uname', 'MAD-1')
