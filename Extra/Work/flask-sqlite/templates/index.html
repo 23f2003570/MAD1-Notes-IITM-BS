@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles</title>
+</head>
+
+<body>
+    <h1>Available Roles</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Serial Number</th>
+                <th scope="col">Role Name</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.Id }}</td>
+                <td>{{role.RoleName}}</td>
+                <td>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
