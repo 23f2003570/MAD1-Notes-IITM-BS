@@ -406,6 +406,8 @@ In this case, **white-box testing** ensures that all the branches of the `if-eli
 
 **Black-box testing** is a testing methodology where the tester does **not** have access to the internal workings of the application. The focus is on testing the functionality of the application by providing inputs and examining the outputs, without any knowledge of the underlying code structure.
 
+Black Box Testing Encourages clean abstraction of interface
+
 In black-box testing, you only care about whether the software works as expected from the user’s perspective, not how the system achieves those results. It is primarily concerned with **functional** testing.
 
 ##### Key Features of Black-box Testing:
@@ -507,6 +509,31 @@ Regression testing is the process of re-testing a software application after cha
 Code coverage is a software testing metric used to measure the extent to which the source code of a program is exercised by a set of test cases. It helps assess the effectiveness of tests by identifying which parts of the code have been tested and which remain untested. Code coverage is typically expressed as a percentage, representing the proportion of code lines, branches, paths, or conditions that have been executed during testing. High code coverage suggests that the code has been thoroughly tested, but it does not guarantee the absence of defects. Different types of code coverage, such as line coverage, branch coverage, and path coverage, provide varying levels of insight into how well the code is being tested. While code coverage is a useful metric, it should be used alongside other testing practices to ensure comprehensive software quality.
 
 1. Function Coverage
-2. Branch Coverage
-3. Condition Coverage
-4. 
+   1. Every function called/tested at-least once
+2. Statement Coverage.
+   1. Every statement in function called/tested at-least once
+   2. If statement has x valid compilable lines, then each should be tested
+   3. IITM counts braces too!!! 
+3. Branch Coverage
+   1. Test branches - both branch taken and false (not taken)
+4. Condition Coverage
+   1. Tests Conditions.. >, <, ==, !=
+   2. has to have a test that fulfils the branch condition
+
+So 100% coverage of tests does not mean your software is secure and bug free
+
+
+
+## [L 10.2: Levels of Testing (26:30)](https://youtu.be/-JQb4J-3StQ)
+
+### Initial Requirements Gathering
+
+1. Stakeholders
+   1. Who are the users
+2. Functionality
+   1. what should the app do ?
+3. Non Functional requirements
+   1. Colors
+
+
+TDD
